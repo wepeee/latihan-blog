@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <h1>welcome <%= email %></h1>
+  <hr>
+  <h2>my blog</h2>
+  <a href="/blog/add" class="btn btn-primary">add blog</a><br>
+  <div class="d-flex flex-wrap justify-content-between">
+    <% if (Blogs.length != 0) { %>
+    <% Blogs.forEach(b => { %>
+    <div class="card mt-4" style="width: 18rem;">
+      <div class="card-body">
+        <h4 class="card-title"><%= b.title %></h4>
+        <h6 class="card-subtitle mb-3 text-body-secondary">author : <i><a href="/profile/<%= b.author %>"><%= b.author %></a></i></h6>
+        <div class="d-flex">
+          <a href="/blog/<%= b._id %>" class="card-link btn btn-primary badge">detail</a>
+          <form class="ms-2" method="POST" action="/blog/?_method=DELETE">
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="hidden" name="id" value="<%=b._id%>">
+            <button type="submit" class="card-link btn btn-danger badge">delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </div>
+  <% } else {%>
+  <p><i>no data</i></p>
+  <% } %>
+</div>

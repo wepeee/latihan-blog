@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <form method="POST" action="/blog">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title" required>
+    </div>
+    <div class="mb-3">
+      <label for="detail" class="form-label">Detail</label>
+      <input type="text" class="form-control" id="detail" name="detail" required>
+    </div>
+    <div class="mb-3">
+      <input type="hidden" class="form-control" id="author" name="author" value="<%= email %>">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<div class="container-fluid mt-3">
+  <h1>blog site</h1>
+  <a href="/blog/add" class="btn btn-primary">add blog</a>
+  <% if (Blogs.length != 0) { %>
+  <% Blogs.forEach(b => { %>
+  <div class="row border p-3 mt-3">
+    <h2><%= b.title %></h2>
+    <p>author : <i><a href="/profile/<%= b.author %>"><%= b.author %></a></i></p>
+    <div class="action">
+      <a href="/blog/<%= b._id %>" class="btn btn-primary">detail</a>
+    </div>
+  </div>
+  <% }) %>
+  <% } else {%>
+  <p><i>no data</i></p>
+  <% } %>
+
+
+</div>
